@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestauranteProyecto">
         <activity
+            android:name=".ListaMenu"
+            android:exported="false" />
+        <activity
             android:name=".GridItemPlato"
             android:exported="false" />
         <activity
