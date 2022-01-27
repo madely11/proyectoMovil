@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,15 +20,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class ListaMenu extends AppCompatActivity {
-    private ArrayList<Menu> menus;
+    private ArrayList<MenuRest> menuRests;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_menu);
-        menus=new ArrayList<Menu>();
-        menus.add(new Menu("Platos Fuertes", "Encontraras los mejores platos para su degustación"));
-        menus.add(new Menu("Bebidas","Todo tipo de bebidas"));
-        menus.add(new Menu("Postres","Los mas deliciosos postres"));
+        menuRests =new ArrayList<MenuRest>();
+        menuRests.add(new MenuRest("Platos Fuertes", "Encontraras los mejores platos para su degustación"));
+        menuRests.add(new MenuRest("Bebidas","Todo tipo de bebidas"));
+        menuRests.add(new MenuRest("Postres","Los mas deliciosos postres"));
 
         AdaptadorMenu adaptador = new AdaptadorMenu(this);
         ListView lv1 = findViewById(R.id.list1);
@@ -36,21 +39,41 @@ public class ListaMenu extends AppCompatActivity {
                 Intent intent;
                 if(i==0){
                     intent = new Intent(ListaMenu.this, GridPlatos.class);
-                    Toast.makeText(ListaMenu.this,menus.get(i).getNombre(), Toast.LENGTH_LONG).show();}
+                    Toast.makeText(ListaMenu.this, menuRests.get(i).getNombre(), Toast.LENGTH_LONG).show();}
                 else if(i==2){
-                    Toast.makeText(ListaMenu.this,menus.get(i).getNombre(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ListaMenu.this, menuRests.get(i).getNombre(), Toast.LENGTH_LONG).show();
                 }else {
-                    Toast.makeText(ListaMenu.this,menus.get(i).getNombre(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ListaMenu.this, menuRests.get(i).getNombre(), Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
-    class AdaptadorMenu extends ArrayAdapter<Menu> {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.overflow_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+                switch (item.getItemId()) {
+            case R.id.Salir:
+                 intent = new Intent(ListaMenu.this,MainActivity.class);
+                return true;
+            case R.id.ir_menu:
+                 intent = new Intent(ListaMenu.this,GridPlatos.class);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    class AdaptadorMenu extends ArrayAdapter<MenuRest> {
 
         AppCompatActivity appCompatActivity;
 
         AdaptadorMenu(AppCompatActivity context) {
-            super(context, R.layout.menu, menus);
+            super(context, R.layout.menu, menuRests);
             appCompatActivity = context;
         }
 
@@ -60,12 +83,12 @@ public class ListaMenu extends AppCompatActivity {
 
             TextView textView1 = item.findViewById(R.id.tx1);
             TextView textView2 = item.findViewById(R.id.tx2);
-            textView1.setText(menus.get(position).getNombre());
-            textView2.setText(menus.get(position).getDescripcion());
+            textView1.setText(menuRests.get(position).getNombre());
+            textView2.setText(menuRests.get(position).getDescripcion());
             ImageView imageView1 = item.findViewById(R.id.img1);
-            if (menus.get(position).getNombre()=="Platos Fuertes")
+            if (menuRests.get(position).getNombre()=="Platos Fuertes")
                 imageView1.setImageResource(R.mipmap.platofuerte);
-            else if(menus.get(position).getNombre()=="Bebidas")
+            else if(menuRests.get(position).getNombre()=="Bebidas")
                 imageView1.setImageResource(R.mipmap.bebidas);
             else{
                 imageView1.setImageResource(R.mipmap.postres);

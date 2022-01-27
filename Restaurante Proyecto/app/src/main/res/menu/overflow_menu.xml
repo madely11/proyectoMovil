@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Salir"
+        android:title="@string/string_salir" />
+    <item
+        android:id="@+id/ir_menu"
+        android:title="@string/menu_inicio" />
+    <item
+        android:id="@+id/ir_opciones"
+        android:title="@string/opciones" />
+</menu>

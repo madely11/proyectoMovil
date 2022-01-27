@@ -1,10 +1,10 @@
 package com.example.restauranteproyecto;
 
-public class Menu {
+public class MenuRest {
     private String nombre;
     private String descripcion;
 
-    public Menu(String nombre, String descripcion) {
+    public MenuRest(String nombre, String descripcion) {
         this.nombre=nombre;
         this.descripcion=descripcion;
     }
