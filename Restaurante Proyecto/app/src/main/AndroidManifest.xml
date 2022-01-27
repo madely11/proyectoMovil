@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestauranteProyecto">
         <activity
+            android:name=".GridItemPlato"
+            android:exported="false" />
+        <activity
+            android:name=".GridPlatos"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
