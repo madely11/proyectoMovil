@@ -39,11 +39,16 @@ public class ListaMenu extends AppCompatActivity {
                 Intent intent;
                 if(i==0){
                     intent = new Intent(ListaMenu.this, GridPlatos.class);
-                    Toast.makeText(ListaMenu.this, menuRests.get(i).getNombre(), Toast.LENGTH_LONG).show();}
+                    Toast.makeText(ListaMenu.this, menuRests.get(i).getNombre(), Toast.LENGTH_LONG).show();
+                    startActivity(intent);}
                 else if(i==2){
+                    intent = new Intent(ListaMenu.this, GridPostres.class);
                     Toast.makeText(ListaMenu.this, menuRests.get(i).getNombre(), Toast.LENGTH_LONG).show();
+                    startActivity(intent);
                 }else {
+                    intent = new Intent(ListaMenu.this, GridBebidas.class);
                     Toast.makeText(ListaMenu.this, menuRests.get(i).getNombre(), Toast.LENGTH_LONG).show();
+                    startActivity(intent);
                 }
             }
         });

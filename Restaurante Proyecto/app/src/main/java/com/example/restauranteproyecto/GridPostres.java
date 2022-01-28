@@ -14,8 +14,8 @@ import android.widget.ImageView;
 public class GridPostres extends AppCompatActivity {
 
     GridView gridView;
-    String[] resources = {"Churrasco", "Chiva", "Pollo", "Pescado"};
-    int[] images = {R.drawable.plaone, R.drawable.platwo, R.drawable.platree, R.drawable.plafour};
+    String[] resources = {"Cheescake", "Torta", "Mara cake", "Tres leches"};
+    int[] images = {R.drawable.pos1, R.drawable.pos2, R.drawable.pos3, R.drawable.pos4};
     String[] cost = {"2.50$ c/u","4.50$ c/u","3.00$ c/u","3.50$ c/u"};
 
     @Override
