@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestauranteProyecto">
         <activity
+            android:name=".GridPostres"
+            android:exported="false" />
+        <activity
+            android:name=".GridBebidas"
+            android:exported="false" />
+        <activity
             android:name=".ListaMenu"
             android:exported="false" />
         <activity
