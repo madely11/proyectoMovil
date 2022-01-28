@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "348712043553",
+    "project_id": "restaurante-18bed",
+    "storage_bucket": "restaurante-18bed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348712043553:android:d3e799931e120fca57cf60",
+        "android_client_info": {
+          "package_name": "com.example.restauranteproyecto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348712043553-6i0gvpqagq9dav692mk8jnkdahru6kof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlILWEmMFAp08PTKf87kgU-U-0Fw1v8Mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348712043553-6i0gvpqagq9dav692mk8jnkdahru6kof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
