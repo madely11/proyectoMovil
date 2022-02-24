@@ -15,6 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListaOrdenes extends AppCompatActivity {
 
     @Override
@@ -22,14 +25,15 @@ public class ListaOrdenes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ordenes);
 
+
     }
     //Obtener Ordenes Firebase Realtime
     public List<Orden> datosOrdenes(){
         List<Orden> ordenes = new ArrayList<Orden>();
         //Firebase Realtime
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Ordenes");
-        myRef = myRef.child("Orden");
+        DatabaseReference myRef = database.getReference();
+        myRef = myRef.child("Orders");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -73,15 +77,16 @@ public class ListaOrdenes extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(R.layout.orden_item, null);
-            TextView nombre = (TextView) view.findViewById(R.id.nombre);
-            TextView precio = (TextView) view.findViewById(R.id.precio);
-            TextView cantidad = (TextView) view.findViewById(R.id.cantidad);
-            TextView total = (TextView) view.findViewById(R.id.total);
+            listaOrdenes = datosOrdenes();
+            View view = getLayoutInflater().inflate(R.layout.layout_ordenes, null);
+            TextView nombre = (TextView) view.findViewById(R.id.orden_numero);
+            TextView precio = (TextView) view.findViewById(R.id.orden_fecha);
+            TextView cantidad = (TextView) view.findViewById(R.id.orden_estado);
+            //TextView total = (TextView) view.findViewById(R.id.total);
             nombre.setText(listaOrdenes.get(position).getNombre());
             precio.setText(listaOrdenes.get(position).getPrecio());
             cantidad.setText(listaOrdenes.get(position).getCantidad());
-            total.setText(listaOrdenes.get(position).getTotal());
+            //total.setText(listaOrdenes.get(position).getTotal());
             return view;
         }
     }

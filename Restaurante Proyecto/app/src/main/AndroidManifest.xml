@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestauranteProyecto">
         <activity
-<<<<<<< HEAD
-            android:name=".ListaOrdenes"
-=======
             android:name=".ListaOrden"
->>>>>>> b670de3ea03d63c7686588ba5b880bdd0c896307
-            android:exported="false" />
+            android:exported="false"/>
+        <activity
+            android:name=".ListaOrdenes"
+            android:exported="false"/>
+            />
         <activity
             android:name=".GridPostres"
             android:exported="false" />
