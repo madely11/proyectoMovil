@@ -24,7 +24,11 @@ public class ListaOrdenes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ordenes);
-
+        CustomAdapter customAdapter = new CustomAdapter(this, getLista());
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(customAdapter);
+        
+        
 
     }
     //Obtener Ordenes Firebase Realtime
@@ -41,7 +45,7 @@ public class ListaOrdenes extends AppCompatActivity {
                     Orden orden = snapshot.getValue(Orden.class);
                     ordenes.add(orden);
                 }
-            }
+           }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
