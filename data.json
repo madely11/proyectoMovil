@@ -1,0 +1,29 @@
+{
+    "Category": {
+      "01": {
+        "Name": "Churrasco",
+        "Image": "https://img.goraymi.com/2019/04/26/4ed6350b918b263b983c5d8269a9e4e8_xl.jpg",
+        "Description": "Arroz con carne a la plancha, acompañado de papas fritas y ensalada.",
+        "Price": "5"
+      },
+      "02": {
+        "Name": "Pollo con menestra",
+        "Image": "https://3.bp.blogspot.com/-zvVmSnAJuvE/WEBCeuBNHII/AAAAAAAAICQ/f-nsmSmQTCULi0J1fKtUaZre2mqiBABEQCLcB/s1600/cocina%2Becuatoriana%2B-%2BArroz%2Bcon%2Bmenestra%2Bde%2Bfr%25C3%25A9jol%2By%2Bcarne%2Basada.jpg",
+        "Description": "Pollo al horno acompañado con menestra y maduro frito",
+        "Price": "4"
+      },
+      "03": {
+        "Name": "Pescado frito",
+        "Image": "https://pescado.site/wp-content/uploads/2020/11/como-hacer-pescado-frito.jpg",
+        "Description": "Pieza completa de pescado frito acompañado de arroz, papas fritas y ensalada.",
+        "Price": "7"
+      },
+      "04": {
+        "Name": "Guatita",
+        "Image": "https://1.bp.blogspot.com/-y98zd_6en10/YT0COy8lctI/AAAAAAAAJh4/DNyTcHR7DugYz5aJYC0sxJuGDtycQ1qfwCLcBGAsYHQ/s600/guatita-ecuatoriana-guayaca.jpg",
+        "Description": "Guatita acompañada con arroz, aguacate y maduro frito.",
+        "Price": "4"
+      }
+    },
+    "Orders": {}
+  }

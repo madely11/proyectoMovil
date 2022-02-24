@@ -10,10 +10,13 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class GridItemPlato extends AppCompatActivity {
 
@@ -21,6 +24,10 @@ public class GridItemPlato extends AppCompatActivity {
     private TextView cost;
     private ImageView image;
     private Button btnSend;
+    //private ArrayList<PlatoModel> listaPlato = new ArrayList<PlatoModel>();
+    PlatoModel plato = new PlatoModel();
+    Bundle b = new Bundle();
+    private MainActivity obj = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +43,18 @@ public class GridItemPlato extends AppCompatActivity {
         image.setImageResource(intent.getIntExtra("image", 0));
         cost.setText(intent.getStringExtra("cost"));
 
+        plato.setNombre(name.getText().toString());
+        plato.setPrecio(cost.getText().toString());
+
         btnSend = findViewById(R.id.buttonSendGrid);
+
         btnSend.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
+                sendArray(intent);
                 showNotification();
+
             }
         });
     }
@@ -53,6 +66,14 @@ public class GridItemPlato extends AppCompatActivity {
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.createNotificationChannel(channel);
         showNewNotification();
+    }
+
+    private void sendArray(Intent intent){
+        obj.listaPlato.add(plato);
+        b.putParcelableArrayList("list", obj.listaPlato);
+        intent = new Intent(GridItemPlato.this, ListaOrden.class);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 
     private void showNewNotification() {
