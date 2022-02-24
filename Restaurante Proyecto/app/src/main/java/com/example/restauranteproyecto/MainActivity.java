@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 //Intent inicio = new Intent(MainActivity.this, ListaMenu.class);
                 email = user.getText().toString();
                 contra = pass.getText().toString();
-                if(!email.isEmpty() && !contra.isEmpty()){
+                if(!email.isEmpty() && !contra.isEmpty() && !email.equals("Admin")){
                     loginUser();
-                }else if(email=="Admin" && contra=="admin"){
-                    Intent inicio = new Intent(MainActivity.this, ListaMenu.class);
+                }else if(email.equals("Admin") && contra.equals("admin")){
+                    Intent inicio = new Intent(MainActivity.this, ListaOrdenes.class);
                     startActivity(inicio);
                 }
                 else{
