@@ -11,8 +11,14 @@
         <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/activity_grid_item_plato.xml" value="0.1796875" />
         <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/activity_grid_platos.xml" value="0.1796875" />
         <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/activity_lista_menu.xml" value="0.1671195652173913" />
+        <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/activity_lista_ordenes.xml" value="0.22" />
         <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/grid_matrix.xml" value="0.1796875" />
+<<<<<<< HEAD
+        <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/layout_ordenes.xml" value="0.22" />
+        <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/menu.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/menu/overflow_menu.xml" value="0.3333333333333333" />
+=======
         <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/menu.xml" value="0.1796875" />
         <entry key="..\:/Users/Caicedo/Documents/Proyecto movil/proyectoMovil/Restaurante Proyecto/app/src/main/res/menu/overflow_menu.xml" value="0.22" />
         <entry key="..\:/Users/madel/Documents/Madely/Universidad/Movil/2do Parcial/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/activity_lista_menu.xml" value="0.1" />
@@ -26,6 +32,7 @@
         <entry key="..\:/Users/madel/Documents/Madely/Universidad/Movil/3er Parcial/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/madel/Documents/Madely/Universidad/Movil/3er Parcial/proyectoMovil/Restaurante Proyecto/app/src/main/res/layout/menu.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/madel/Documents/Madely/Universidad/Movil/3er Parcial/proyectoMovil/Restaurante Proyecto/app/src/main/res/menu/overflow_menu.xml" value="0.1796875" />
+>>>>>>> b670de3ea03d63c7686588ba5b880bdd0c896307
       </map>
     </option>
   </component>
