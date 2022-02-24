@@ -4,14 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GridPlatos">
+    tools:context=".ListaMenu">
 
-    <GridView
-        android:id="@+id/gridMatrix"
-        android:layout_width="match_parent"
-        android:layout_height="416dp"
-        android:horizontalSpacing="1dp"
-        android:numColumns="2"
-        android:verticalSpacing="2dp"></GridView>
+    <ListView
+        android:id="@+id/listOrder"
+        android:layout_width="409dp"
+        android:layout_height="729dp" />
 
 </RelativeLayout>

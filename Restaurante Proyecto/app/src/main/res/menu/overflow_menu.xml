@@ -6,6 +6,6 @@
         android:id="@+id/ir_menu"
         android:title="@string/menu_inicio" />
     <item
-        android:id="@+id/ir_opciones"
-        android:title="@string/opciones" />
+        android:id="@+id/ir_carrito"
+        android:title="Carrito" />
 </menu>

@@ -15,12 +15,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class GridItemPlato extends AppCompatActivity {
 
     private TextView name;
     private TextView cost;
     private ImageView image;
     private Button btnSend;
+    private ArrayList<PlatoModel> listaPlato = new ArrayList<PlatoModel>();
+    PlatoModel plato = new PlatoModel();
+    Bundle b = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,24 +40,36 @@ public class GridItemPlato extends AppCompatActivity {
         name.setText(intent.getStringExtra("name"));
         image.setImageResource(intent.getIntExtra("image", 0));
         cost.setText(intent.getStringExtra("cost"));
+        plato.setNombre(name.getText().toString());
+        plato.setPrecio(cost.getText().toString());
 
         btnSend = findViewById(R.id.buttonSendGrid);
+
         btnSend.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 showNotification();
+                sendArray(intent);
             }
         });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void showNotification() {
+
         NotificationChannel channel = new NotificationChannel("canal1",
                 "NEW", NotificationManager.IMPORTANCE_DEFAULT);
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.createNotificationChannel(channel);
         showNewNotification();
+    }
+
+    private void sendArray(Intent intent){
+        listaPlato.add(plato);
+        b.putParcelableArrayList("list", listaPlato);
+        intent = new Intent(GridItemPlato.this, ListaOrden.class);
+        intent.putExtras(b);
     }
 
     private void showNewNotification() {

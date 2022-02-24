@@ -65,10 +65,17 @@ public class ListaMenu extends AppCompatActivity {
                 switch (item.getItemId()) {
             case R.id.Salir:
                  intent = new Intent(ListaMenu.this,MainActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.ir_menu:
                  intent = new Intent(ListaMenu.this,GridPlatos.class);
+                 startActivity(intent);
                 return true;
+            case R.id.ir_carrito:
+                intent = new Intent(ListaMenu.this,ListaOrden.class);
+                startActivity(intent);
+            return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
