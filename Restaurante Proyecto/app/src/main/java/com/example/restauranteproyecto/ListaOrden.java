@@ -44,25 +44,20 @@ public class ListaOrden extends AppCompatActivity {
         AdaptadorMenu adaptor = new AdaptadorMenu(this);
         lv1.setAdapter(adaptor);
 
-        /*enviarOrden.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                enviarABase();
-            }
-        });*/
-
     }
-    private void enviarABase(){
+
+    public void enviarABase(View view) {
         try {
             database = FirebaseDatabase.getInstance();
             reference = database.getReference();
             reference.child("Orders").push().setValue(listaPlato.get(0));
+            Toast toast1 = Toast.makeText(getApplicationContext(),"La orden ha sido enviada", Toast.LENGTH_SHORT);
+            toast1.show();
         }catch (Exception e){
             e.printStackTrace();
             Toast toast1 = Toast.makeText(getApplicationContext(),"No se puede guardar en la base de datos", Toast.LENGTH_SHORT);
             toast1.show();
         }
-
     }
 
     class AdaptadorMenu extends ArrayAdapter<PlatoModel> {
@@ -82,7 +77,7 @@ public class ListaOrden extends AppCompatActivity {
             textView1.setText(listaPlato.get(position).getNombre());
             textView2.setText(listaPlato.get(position).getPrecio());
             textView3.setText(listaPlato.get(position).getCantidad());
-            enviarABase();
+            //enviarABase();
             return(item);
         }
     }

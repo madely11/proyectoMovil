@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:paddingTop="600dp">
+        android:paddingTop="550dp">
 
         <Button
             android:id="@+id/btnEnviarOrden"
@@ -24,8 +24,11 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="256dp"
-            android:backgroundTint="@color/black"
-            android:text="Ordenar" />
+            android:backgroundTint="#0000FF"
+            android:onClick="enviarABase"
+            android:text="Ordenar"
+            android:layout_centerInParent="true"
+            tools:ignore="OnClick" />
 
     </RelativeLayout>
 
