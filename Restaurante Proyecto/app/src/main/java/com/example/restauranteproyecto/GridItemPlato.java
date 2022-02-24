@@ -10,6 +10,7 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,9 +24,10 @@ public class GridItemPlato extends AppCompatActivity {
     private TextView cost;
     private ImageView image;
     private Button btnSend;
-    private ArrayList<PlatoModel> listaPlato = new ArrayList<PlatoModel>();
+    //private ArrayList<PlatoModel> listaPlato = new ArrayList<PlatoModel>();
     PlatoModel plato = new PlatoModel();
     Bundle b = new Bundle();
+    private MainActivity obj = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class GridItemPlato extends AppCompatActivity {
         name.setText(intent.getStringExtra("name"));
         image.setImageResource(intent.getIntExtra("image", 0));
         cost.setText(intent.getStringExtra("cost"));
+
         plato.setNombre(name.getText().toString());
         plato.setPrecio(cost.getText().toString());
 
@@ -49,15 +52,15 @@ public class GridItemPlato extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                showNotification();
                 sendArray(intent);
+                showNotification();
+
             }
         });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void showNotification() {
-
         NotificationChannel channel = new NotificationChannel("canal1",
                 "NEW", NotificationManager.IMPORTANCE_DEFAULT);
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -66,10 +69,11 @@ public class GridItemPlato extends AppCompatActivity {
     }
 
     private void sendArray(Intent intent){
-        listaPlato.add(plato);
-        b.putParcelableArrayList("list", listaPlato);
+        obj.listaPlato.add(plato);
+        b.putParcelableArrayList("list", obj.listaPlato);
         intent = new Intent(GridItemPlato.this, ListaOrden.class);
         intent.putExtras(b);
+        startActivity(intent);
     }
 
     private void showNewNotification() {

@@ -16,6 +16,8 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
     Button iniciarSesion;
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     String email = "";
     String contra = "";
+    ArrayList<PlatoModel> listaPlato = new ArrayList<>();;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,18 +50,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast1 = Toast.makeText(getApplicationContext(),"El Usuario o la contraseña se encuentran vacios", Toast.LENGTH_SHORT);
                     toast1.show();
                 }
-                /*if(user.getText().toString().equals("") || pass.getText().toString().equals("")){
-                    Toast toast1 = Toast.makeText(getApplicationContext(),"El Usuario o la contraseña se encuentran vacios", Toast.LENGTH_SHORT);
-                    toast1.show();
-                }else{
-                        if(user.getText().toString().equals("Carlos") && pass.getText().toString().equals("123")){
-                            //intent.putExtra("usuario", user.getText().toString());
-                            startActivity(inicio);
-                        }else{
-                            Toast toast1 = Toast.makeText(getApplicationContext(),"Usuario o contraseña incorrectos", Toast.LENGTH_SHORT);
-                            toast1.show();
-                        }
-                }*/
 
             }
         });
