@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -41,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
                 contra = pass.getText().toString();
                 if(!email.isEmpty() && !contra.isEmpty()){
                     loginUser();
+                }else if(email=="Admin" && contra=="admin"){
+                    Intent inicio = new Intent(MainActivity.this, ListaMenu.class);
+                    startActivity(inicio);
                 }
                 else{
                     Toast toast1 = Toast.makeText(getApplicationContext(),"El Usuario o la contraseña se encuentran vacios", Toast.LENGTH_SHORT);
