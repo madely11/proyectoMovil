@@ -24,7 +24,7 @@ public class ListaOrden extends AppCompatActivity {
 
     Bundle b=new Bundle();
     Button enviarOrden;
-    ArrayList<PlatoModel> listaPlato;
+    ArrayList<PlatoModel> listaPlato = new ArrayList<PlatoModel>();
     PlatoModel plato = new PlatoModel();
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -76,7 +76,7 @@ public class ListaOrden extends AppCompatActivity {
             TextView textView3 = item.findViewById(R.id.cantidadPlato);
             textView1.setText(listaPlato.get(position).getNombre());
             textView2.setText(listaPlato.get(position).getPrecio());
-            textView3.setText(listaPlato.get(position).getCantidad());
+            textView3.setText(listaPlato.get(position).getDescripcion());
             //enviarABase();
             return(item);
         }
