@@ -3,6 +3,7 @@ package com.example.restauranteproyecto;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,68 +27,29 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GridPlatos extends AppCompatActivity {
 
-    private static final String TAG = "PRUEBA";
-    FirebaseDatabase database;
-    DatabaseReference reference;
-    ArrayList<PlatoModel> lista = new ArrayList<PlatoModel>();
+    //private static final String TAG = "PRUEBA";
 
-
-    //GridView gridView;
+    GridView gridView;
     //String[] resources = {"Churrasco", "Chiva", "Pollo", "Pescado"};
-    //int[] images = {R.drawable.plaone, R.drawable.platwo, R.drawable.platree, R.drawable.plafour};
+    int[] images = {R.drawable.plaone, R.drawable.platwo, R.drawable.platree, R.drawable.plafour};
     //String[] cost = {"2.50$ c/u","4.50$ c/u","3.00$ c/u","3.50$ c/u"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_platos);
-        ArrayList<PlatoModel> listaPlato = getData();
-
-        //Log.d(TAG, "size " + listaPlato.size());
-        for (int i = 0; i < listaPlato.size(); i++) {
-            Log.d(TAG, "DENTRO FOR");
-            Log.d(TAG, "datos lista" + listaPlato.get(i).getNombre());
-        }
+        ArrayList<PlatoModel> lista = new ArrayList<PlatoModel>();
 
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference();
+        reference = reference.child("PlatosFuertes");
 
-       /* gridView = findViewById(R.id.gridMatrix);
-        CustomAdapter customAdap = new CustomAdapter();
-        gridView.setAdapter(customAdap);*/
-        /*gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-                Intent in = new Intent(getApplicationContext(), GridItemPlato.class);
-                in.putExtra("name", listaPlato.get(i).getNombre());
-                in.putExtra("image", listaPlato.get(i).getImagen());
-                in.putExtra("cost", listaPlato.get(i).getPrecio());
-                startActivity(in);
-            }
-        } );*/
-    }
-
-    private ArrayList<PlatoModel> getData(){
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference();
-
-
-        reference.child("PlatosFuertes").child("Name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-
-                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                }
-            }
-        });
-
-        reference.child("PlatosFuertes").addValueEventListener(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot snap : snapshot.getChildren()) {
@@ -98,9 +60,20 @@ public class GridPlatos extends AppCompatActivity {
                     plato.setPrecio(snap.child("Price").getValue().toString());
                     lista.add(plato);
                 }
-                for (int i = 0; i < lista.size(); i++) {
-                    Log.d(TAG, "datos lista" + lista.get(i).getNombre());
-                }
+                //CUSTOM
+                gridView = findViewById(R.id.gridMatrix);
+                CustomAdapter customAdap = new CustomAdapter(GridPlatos.this, lista);
+                gridView.setAdapter(customAdap);
+                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent in = new Intent(getApplicationContext(), GridItemPlato.class);
+                        in.putExtra("name", lista.get(i).getNombre());
+                        in.putExtra("image", images[i]);
+                        in.putExtra("cost", lista.get(i).getPrecio());
+                        startActivity(in);
+                    }
+                });
             }
 
             @Override
@@ -108,18 +81,20 @@ public class GridPlatos extends AppCompatActivity {
 
             }
         });
-
-        SystemClock.sleep(5000);
-        Log.d(TAG, "PRUEBAAA");
-
-        return lista;
     }
 
-    /*private class CustomAdapter extends BaseAdapter {
+    private class CustomAdapter extends BaseAdapter {
+        private Context context;
+        private ArrayList<PlatoModel> lista;
+
+        public CustomAdapter(Context context, ArrayList<PlatoModel> lista) {
+            this.context = context;
+            this.lista = lista;
+        }
 
         @Override
         public int getCount() {
-            return listaPlato.size();
+            return images.length;
         }
 
         @Override
@@ -140,10 +115,11 @@ public class GridPlatos extends AppCompatActivity {
 
             //name.setText(resources[position]);
             //Uri imageUri = new Uri(listaPlato.get(position).getImagen());
-            Uri imageUri = Uri.parse(listaPlato.get(position).getImagen());
-            image.setImageURI(imageUri);
-            //image.setImageResource(images[position]);
+            //Uri imageUri = Uri.parse(lista.get(position).getImagen());
+            //image.setImageURI(imageUri);
+            image.setImageResource(images[position]);
             return view;
         }
-    }*/
+    }
 }
+

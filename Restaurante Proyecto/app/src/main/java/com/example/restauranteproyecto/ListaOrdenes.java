@@ -44,8 +44,6 @@ public class ListaOrdenes extends AppCompatActivity {
                 CustomAdapter customAdapter = new CustomAdapter(ListaOrdenes.this, ordenes);
                 ListView listView = (ListView) findViewById(R.id.listaOrdenes);
                 listView.setAdapter(customAdapter);
-
-
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
