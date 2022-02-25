@@ -22,19 +22,11 @@ import java.util.List;
 public class ListaOrdenes extends AppCompatActivity {
 
     //@Override
-    /*protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ordenes);
-        CustomAdapter customAdapter = new CustomAdapter(this, datosOrdenes());
-        ListView listView = (ListView) findViewById(R.id.listaOrdenes);
-        listView.setAdapter(customAdapter);
-
-        
-
-    }
-    //Obtener Ordenes Firebase Realtime
-    public List<Orden> datosOrdenes(){
         List<Orden> ordenes = new ArrayList<Orden>();
+
         //Firebase Realtime
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -49,12 +41,18 @@ public class ListaOrdenes extends AppCompatActivity {
                     orden.setPrecio(snapshot.child("precio").getValue().toString());
                     ordenes.add(orden);
                 }
-           }
+                CustomAdapter customAdapter = new CustomAdapter(ListaOrdenes.this, ordenes);
+                ListView listView = (ListView) findViewById(R.id.listaOrdenes);
+                listView.setAdapter(customAdapter);
+
+
+            }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-        return ordenes;
+
+        
 
     }
     //TODO: Agregar el código de la lista de ordenes
@@ -91,13 +89,13 @@ public class ListaOrdenes extends AppCompatActivity {
             TextView precio = (TextView) view.findViewById(R.id.orden_fecha);
             TextView cantidad = (TextView) view.findViewById(R.id.orden_estado);
             //TextView total = (TextView) view.findViewById(R.id.total);
-            nombre.setText("Orden " + position);
+            nombre.setText("Orden " + (position+1));
             precio.setText(listaOrdenes.get(position).getNombre());
             cantidad.setText(listaOrdenes.get(position).getPrecio());
 
             //total.setText(listaOrdenes.get(position).getTotal());
             return view;
         }
-    }*/
+    }
     
 }
