@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,10 +25,10 @@ public class ListaOrdenes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ordenes);
-        CustomAdapter customAdapter = new CustomAdapter(this, getLista());
-        ListView listView = (ListView) findViewById(R.id.listView);
+        CustomAdapter customAdapter = new CustomAdapter(this, datosOrdenes());
+        ListView listView = (ListView) findViewById(R.id.listaOrdenes);
         listView.setAdapter(customAdapter);
-        
+
         
 
     }
@@ -38,11 +39,14 @@ public class ListaOrdenes extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
         myRef = myRef.child("Orders");
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Orden orden = snapshot.getValue(Orden.class);
+                    Orden orden = new Orden();
+                    orden.setNombre(snapshot.child("nombre").getValue().toString());
+                    orden.setPrecio(snapshot.child("precio").getValue().toString());
                     ordenes.add(orden);
                 }
            }
@@ -81,15 +85,16 @@ public class ListaOrdenes extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            listaOrdenes = datosOrdenes();
+            
             View view = getLayoutInflater().inflate(R.layout.layout_ordenes, null);
             TextView nombre = (TextView) view.findViewById(R.id.orden_numero);
             TextView precio = (TextView) view.findViewById(R.id.orden_fecha);
             TextView cantidad = (TextView) view.findViewById(R.id.orden_estado);
             //TextView total = (TextView) view.findViewById(R.id.total);
-            nombre.setText(listaOrdenes.get(position).getNombre());
-            precio.setText(listaOrdenes.get(position).getPrecio());
-            cantidad.setText(listaOrdenes.get(position).getCantidad());
+            nombre.setText("Orden " + position);
+            precio.setText(listaOrdenes.get(position).getNombre());
+            cantidad.setText(listaOrdenes.get(position).getPrecio());
+
             //total.setText(listaOrdenes.get(position).getTotal());
             return view;
         }
