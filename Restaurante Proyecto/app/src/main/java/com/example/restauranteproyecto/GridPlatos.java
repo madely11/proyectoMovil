@@ -17,6 +17,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +32,7 @@ public class GridPlatos extends AppCompatActivity {
     private static final String TAG = "PRUEBA";
     FirebaseDatabase database;
     DatabaseReference reference;
+    ArrayList<PlatoModel> lista = new ArrayList<PlatoModel>();
 
 
     //GridView gridView;
@@ -69,7 +72,20 @@ public class GridPlatos extends AppCompatActivity {
     private ArrayList<PlatoModel> getData(){
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
-        ArrayList<PlatoModel> lista = new ArrayList<PlatoModel>();
+
+
+        reference.child("PlatosFuertes").child("Name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                }
+            }
+        });
 
         reference.child("PlatosFuertes").addValueEventListener(new ValueEventListener() {
             @Override

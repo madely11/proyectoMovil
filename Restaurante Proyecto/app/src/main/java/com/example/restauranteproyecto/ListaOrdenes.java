@@ -21,17 +21,15 @@ import java.util.List;
 
 public class ListaOrdenes extends AppCompatActivity {
 
-    //@Override
-    /*protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ordenes);
         CustomAdapter customAdapter = new CustomAdapter(this, datosOrdenes());
         ListView listView = (ListView) findViewById(R.id.listaOrdenes);
         listView.setAdapter(customAdapter);
-
-        
-
     }
+
     //Obtener Ordenes Firebase Realtime
     public List<Orden> datosOrdenes(){
         List<Orden> ordenes = new ArrayList<Orden>();
@@ -55,8 +53,8 @@ public class ListaOrdenes extends AppCompatActivity {
             }
         });
         return ordenes;
-
     }
+
     //TODO: Agregar el código de la lista de ordenes
     // Adapter
     private class CustomAdapter extends BaseAdapter {
@@ -98,6 +96,6 @@ public class ListaOrdenes extends AppCompatActivity {
             //total.setText(listaOrdenes.get(position).getTotal());
             return view;
         }
-    }*/
+    }
     
 }
