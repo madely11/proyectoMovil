@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RestauranteProyecto">
+
         <activity
             android:name=".ListaOrden"
             android:exported="false"/>
         <activity
             android:name=".ListaOrdenes"
             android:exported="false"/>
-            />
         <activity
             android:name=".GridPostres"
             android:exported="false" />

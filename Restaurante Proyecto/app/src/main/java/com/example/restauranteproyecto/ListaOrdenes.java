@@ -21,8 +21,8 @@ import java.util.List;
 
 public class ListaOrdenes extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    //@Override
+    /*protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ordenes);
         CustomAdapter customAdapter = new CustomAdapter(this, datosOrdenes());
@@ -98,6 +98,6 @@ public class ListaOrdenes extends AppCompatActivity {
             //total.setText(listaOrdenes.get(position).getTotal());
             return view;
         }
-    }
+    }*/
     
 }

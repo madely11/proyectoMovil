@@ -4,15 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class PlatoModel implements Parcelable {
+    private String descripcion;
+    private String imagen;
     private String nombre;
-    private String cantidad;
     private String precio;
 
 
-    public PlatoModel(String nombre, String cantidad, String precio) {
+    public PlatoModel(String nombre, String imagen, String precio, String descripcion) {
         this.setNombre(nombre);
-        this.setCantidad(cantidad);
+        this.setImagen(imagen);
         this.setPrecio(precio);
+        this.setDescripcion(descripcion);
     }
 
     public PlatoModel(){
@@ -21,13 +23,13 @@ public class PlatoModel implements Parcelable {
 
     public PlatoModel(String nombre,String precio) {
         this.setNombre(nombre);
-        this.setCantidad("1");
+        this.setDescripcion("1");
         this.setPrecio(precio);
     }
 
     protected PlatoModel(Parcel in) {
         nombre = in.readString();
-        cantidad = in.readString();
+        imagen = in.readString();
         precio = in.readString();
     }
 
@@ -51,13 +53,6 @@ public class PlatoModel implements Parcelable {
         this.nombre = nombre;
     }
 
-    public String getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;
-    }
 
     public String getPrecio() {
         return precio;
@@ -75,7 +70,23 @@ public class PlatoModel implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(nombre);
-        parcel.writeString(cantidad);
+        parcel.writeString(imagen);
         parcel.writeString(precio);
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

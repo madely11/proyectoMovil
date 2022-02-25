@@ -1,5 +1,5 @@
 {
-    "Category": {
+    "PlatosFuertes": {
       "01": {
         "Name": "Churrasco",
         "Image": "https://img.goraymi.com/2019/04/26/4ed6350b918b263b983c5d8269a9e4e8_xl.jpg",
@@ -25,5 +25,58 @@
         "Price": "4"
       }
     },
+    "Bebidas": {
+      "01": {
+        "Name": "Limonada",
+        "Image": "https://recetas123.net/wp-content/uploads/Limonada.jpg",
+        "Descripcion": "Vaso de limonada con hielo",
+        "Price": "1.00"
+      },
+      "02": {
+        "Name": "Jamaica",
+        "Image": "https://www.clarin.com/img/2020/07/21/7Pj44-Cyq_340x340__1.jpg",
+        "Descriotion": "Vaso de agua fria de agua de jamaica",
+        "Price": "1.50"
+      },
+      "03": {
+        "Name": "Jugo de Mora",
+        "Image": "https://www.tqma.com.ec/images/com_yoorecipe/img_preview/cropped-13165.jpg",
+        "Descriotion": "Vaso de jugo de mora fresco",
+        "Price": "1.00"
+      },
+      "04": {
+        "Name": "Te Frio",
+        "Image": "https://cdn.kiwilimon.com/recetaimagen/3613/th5-640x640-18285.jpg",
+        "Descriotion": "Vaso de te natural frio",
+        "Price": "1.50"
+      }
+    },
+    
+  "Postres": {
+    "01": {
+      "Name": "Cheescake de mora",
+      "Image": "https://recetascheesecake.com/wp-content/uploads/cheesecake-de-mora-2.jpg",
+      "Descripcion": "Cheescake fresco de mora y mermelada de frutos rojos",
+      "Price": "3.50"
+    },
+    "02": {
+      "Name": "Torta mojada de chocolate",
+      "Image": "https://images.aws.nestle.recipes/resized/00725498eff0c95ba7977054fba69820_torta-mojada-porcion_1200_600.jpg",
+      "Descriotion": "Torta de chocolate semiamargo",
+      "Price": "4.00"
+    },
+    "03": {
+      "Name": "Tres leches",
+      "Image": "https://images.aws.nestle.recipes/original/28e62281d3089f252d12878ca4e4c89f_tres-leches.png",
+      "Descriotion": "Torta humeda de 3 leches con crema y canela",
+      "Price": "3.50"
+    },
+    "04": {
+      "Name": "Flan Casero",
+      "Image": "https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2019/11/porque-no-me-sale-bien-el-flan-casero.jpg",
+      "Descriotion": "Fran casero realizado al horno y con caramelo",
+      "Price": "2.00"
+    }
+  },
     "Orders": {}
   }
